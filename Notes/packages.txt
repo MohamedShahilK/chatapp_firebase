@@ -1,0 +1,14 @@
+Dependencies
+---------------------------
+
+get                 -- getx package
+flutter_screenutil  -- to make screen resizing or responsive
+intl                -- to internationalization
+
+
+dots_indicator      -- For Dots Indicator
+
+
+
+Dev Dependencies
+----------------------------
