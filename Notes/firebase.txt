@@ -1,0 +1,41 @@
+Step 1 :
+    Create a project in firebsae
+
+Step 2 :
+    Don't do anything and come back to vscode
+
+Step 3 (Only Required Firebase CLI is not setup in our system. If already done, then skip this step): 
+       [Only Once in a System, Not in every project.If Once setup is done, Skip this Step]
+
+            Make sure install  (https://firebase.google.com/docs/cli --> for reference) in your system by checking : 
+                    "firebase --version"
+            
+                -> If firebase CLI is available, then type "firebase login".
+
+                -> If firebase CLI is not available, then "sudo npm install -g firebase-tools" //sudo is important in this command
+                    Then check "firebase --version".
+                -> add add path in .bashrc file "export PATH="$PATH":"/home/mohamed/.npm-global/bin/firebase" (Optional)
+
+Step 4 (Only Required flutterfire_cli is not setup in our system. If already done, then skip this step): 
+
+    run - "dart pub global activate flutterfire_cli" 
+
+    add add path in .bashrc fil "export PATH="$PATH":"/home/mohamed/.pub-cache/bin""
+
+    run for checking install is done- "flutterfire --version"
+
+Step 5 : 
+    Move to project directory if you are not there.Then configure our project with firebase project by typing:
+        "flutterfire configure"
+    This command bring all projects in our firebase account and we can select the required one.
+
+
+Note : 
+        
+        1. "google-services.json" will automatically download and save on andriod/app directory for andriod and also for other platforms in their appropriate folders
+        2. "build.gradle" will automatically configured too
+
+
+
+
+    

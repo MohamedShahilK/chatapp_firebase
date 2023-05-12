@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "525566613980",
+    "project_id": "fir-mychat-c5734",
+    "storage_bucket": "fir-mychat-c5734.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525566613980:android:0de21cd3f6376ac3469719",
+        "android_client_info": {
+          "package_name": "com.example.chatapp_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525566613980-bjqdjidi7jno0a171hmhceum82fctgc8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0PaiMLVAYBx4gUO1AB2uoyWn9_-0SOcA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525566613980-bjqdjidi7jno0a171hmhceum82fctgc8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
