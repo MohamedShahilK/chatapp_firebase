@@ -1,9 +1,8 @@
-import 'package:chatapp_firebase/utils/design_items/color.dart';
 import 'package:chatapp_firebase/utils/design_items/values/values.dart';
 import 'package:chatapp_firebase/utils/widgets/custom_text_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'index.dart';
+import '../dashboard/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

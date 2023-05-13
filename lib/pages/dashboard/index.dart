@@ -1,4 +1,4 @@
-library signin;
+library application;
 
 export '../Auth/bindings.dart';
 export '../Auth/controller.dart';

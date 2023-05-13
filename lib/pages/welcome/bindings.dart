@@ -5,7 +5,7 @@ import 'package:chatapp_firebase/pages/welcome/index.dart';
 
 import 'package:get/get.dart';
 
-class WelcomeBindings extends Bindings {
+class WelcomeBinding extends Bindings {
   // Here Loading controllers we want
   @override
   void dependencies() {
