@@ -8,7 +8,7 @@ class Config extends GetxController {
   // important
   static Config get to => Get.find();
 
-  bool isFirstOpen = false;
+  bool isFirstOpen = true;
 
   @override
   void onInit() {
@@ -16,7 +16,9 @@ class Config extends GetxController {
     isFirstOpen = StorageServices.to.getBool(STORAGE_DEVICE_FIRST_OPEN_KEY);
   }
 
-  Future<bool> saveAlreadyOpen() {
-    return StorageServices.to.setBool(STORAGE_DEVICE_FIRST_OPEN_KEY, true);
+  // function used to remembering the device that app is already opened , (ie; it is nt the first time)
+  Future<bool> saveAlreadyOpened() {
+    // saveAlreadyOpened means we have to assign "isFirstOpen" to "false"
+    return StorageServices.to.setBool(STORAGE_DEVICE_FIRST_OPEN_KEY, false);
   }
 }

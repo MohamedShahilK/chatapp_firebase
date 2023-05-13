@@ -15,7 +15,7 @@ class WelcomeController extends GetxController {
   }
 
   handleSignIn() async {
-    await Config.to.saveAlreadyOpen();
+    await Config.to.saveAlreadyOpened();
     Get.offAndToNamed(AppRouteNames.signIn);
   }
 }

@@ -7,6 +7,7 @@ import 'package:chatapp_firebase/pages/welcome/index.dart';
 import 'package:chatapp_firebase/pages/dashboard/index.dart';
 
 import 'package:chatapp_firebase/routes/route_names.dart';
+import 'package:chatapp_firebase/utils/middleware/welcome_middleware.dart';
 import 'package:get/get.dart';
 
 class AppPages {
@@ -18,6 +19,9 @@ class AppPages {
       name: AppRouteNames.initial,
       page: () => const WelcomePage(),
       binding: WelcomeBinding(),
+      middlewares: [
+        WelcomeMiddleWare(priority: 1),
+      ],
     ),
 
     // SignIn Page
@@ -29,8 +33,8 @@ class AppPages {
 
     //
     GetPage(
-      name: AppRouteNames.application,
-      page: () => const ApplicationPage(),
+      name: AppRouteNames.dashboard,
+      page: () => const DashBoardPage(),
       binding: ApplicationBinding(),
     )
   ];

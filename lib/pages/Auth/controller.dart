@@ -121,7 +121,7 @@ class SignInController extends GetxController {
               .add(data);
         }
         toastInfo(msg: "login success");
-        Get.offAndToNamed(AppRouteNames.application);
+        Get.offAndToNamed(AppRouteNames.dashboard);
       }
     } catch (e) {
       toastInfo(msg: "login error");
