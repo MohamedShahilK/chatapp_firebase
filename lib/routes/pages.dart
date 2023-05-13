@@ -1,6 +1,8 @@
 // import 'package:chatapp_firebase/pages/welcome/bindings.dart';
 // import 'package:chatapp_firebase/pages/welcome/view.dart';
-import '../pages/welcome/index.dart';
+
+import 'package:chatapp_firebase/pages/welcome/index.dart';
+import 'package:chatapp_firebase/pages/Auth/index.dart';
 
 import 'package:chatapp_firebase/routes/route_names.dart';
 import 'package:get/get.dart';
@@ -14,6 +16,14 @@ class AppPages {
       name: AppRouteNames.initial,
       page: () => const WelcomePage(),
       binding: WelcomeBindings(),
-    ),   
+    ),
+
+    // SignIn Page
+    GetPage(
+      name: AppRouteNames.signIn,
+      page: () => const SignInPage(),
+      binding: SignInBindings(),
+    )
+    
   ];
 }

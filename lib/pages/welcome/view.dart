@@ -93,7 +93,7 @@ class WelcomePage extends GetView<WelcomeController> {
                             ),
                             child: const Text('Login'),
                             onPressed: () {
-                              // controller.handleSignIn();
+                              controller.handleSignIn();
                             },
                           ),
                         )

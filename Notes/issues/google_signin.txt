@@ -1,0 +1,20 @@
+Android setup
+------------------------------------------------------------------------------
+Once you created the Firebase project, we need to do some settings for iOS android.
+
+1. Google-services.json
+
+We need to put the google-service.json file in the app/ folder
+
+2. Internet set up
+
+Make sure for android in /android/app/src/main/AndroidManifest.xml file you have internet connection set up
+
+<uses-permission android:name="android.permission.INTERNET" />
+android internet connection for firebase
+
+It should look like this.
+
+
+
+https://www.dbestech.com/tutorials/flutter-google-sign-in-firebase-auth-login

@@ -5,8 +5,14 @@ get                 -- getx package
 flutter_screenutil  -- to make screen resizing or responsive
 intl                -- to internationalization
 
+firebase_core       -- firebase
+cloud_firestore     -- firebase cloud firestore
+google_sign_in      -- flutter package(not firebase package)
+firebase_auth       -- firebase authetication
 
 dots_indicator      -- For Dots Indicator
+shared_preferences  
+fluttertoast        -- For toast message
 
 
 
