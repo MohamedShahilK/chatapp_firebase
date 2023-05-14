@@ -1,11 +1,16 @@
 // ignore_for_file: avoid_print
 
+import 'dart:io';
+
 import 'package:chatapp_firebase/pages/chat/model/msg_content.dart';
 import 'package:chatapp_firebase/pages/chat/state.dart';
 import 'package:chatapp_firebase/utils/config/user_config.dart';
+import 'package:chatapp_firebase/utils/other/string_sp_operation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ChatController extends GetxController {
   final state = ChatState();
@@ -20,6 +25,9 @@ class ChatController extends GetxController {
   final db = FirebaseFirestore.instance;
 
   var listener;
+
+  File? _photo;
+  final ImagePicker _picker = ImagePicker();
 
   @override
   void onInit() {
@@ -51,7 +59,7 @@ class ChatController extends GetxController {
           fromFirestore: Msgcontent.fromFirestore,
           toFirestore: (Msgcontent model, options) => model.toFirestore(),
         )
-        .orderBy("addtime", descending: true);
+        .orderBy("addtime", descending: false);
 
     // Clear earlier messages
     state.msgContentList.clear();
@@ -89,6 +97,88 @@ class ChatController extends GetxController {
 
     // -----------------------------------------------------------------------------------------------------------------------
   }
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+
+//
+// FILE UPLOAD AND DOWNLOAD FUNCTIONS AND ITS ASSOCIATED FUNCTIONS
+//
+
+  Future imgFromGallery() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      _photo = File(pickedFile.path);
+      _uploadFile();
+    } else {
+      print('No image selected');
+    }
+  }
+
+  Future _uploadFile() async {
+    if (_photo == null) return;
+    // final filename= getRandomString(15)+extension(_photo!.path);
+    final filename = getRandomString(15) + _photo!.path;
+    try {
+      final ref = FirebaseStorage.instance.ref('chat').child(filename);
+
+      // Put file in that reference and listen uploading process
+      await ref.putFile(_photo!).snapshotEvents.listen((event) async {
+        switch (event.state) {
+          case TaskState.running:
+            break;
+          case TaskState.paused:
+            break;
+          case TaskState.canceled:
+            break;
+          case TaskState.error:
+            break;
+          case TaskState.success:
+            String imgUrl = await downloadImageUrl(filename);
+            uploadImageMsgIntoFirebaseFiretore(imgUrl);
+        }
+      });
+    } catch (e) {
+      print('There\'s an error $e');
+    }
+  }
+
+  Future<String> downloadImageUrl(String filename) async {
+    final ref = FirebaseStorage.instance.ref('chat').child(filename);
+    return await ref.getDownloadURL();
+  }
+
+  uploadImageMsgIntoFirebaseFiretore(String url) async {
+    final msgContent = Msgcontent(
+      uid: userId,
+      content: url,
+      type: "image",
+      addtime: Timestamp.now(),
+    );
+
+    // add document into msgList (sub-collection of document which come under the collection of messages)
+    await db
+        .collection("messages")
+        .doc(docId)
+        .collection("msgList")
+        .withConverter(
+          fromFirestore: Msgcontent.fromFirestore,
+          toFirestore: (Msgcontent model, options) => model.toFirestore(),
+        )
+        .add(msgContent)
+        .then((DocumentReference doc) {
+      print('Document Snapshot added with id : ${doc.id}');
+      textEditingController.clear();
+      Get.focusScope?.unfocus();
+    });
+
+    // Update lastMessage property
+    await db
+        .collection("messages")
+        .doc(docId)
+        .update({"last_msg": "[image]", "last_time": Timestamp.now()});
+  }
+
+  // ----------------------------------------------------------------------------------------------------------------------------------------------
 
   // send message function
   sendMessage() async {

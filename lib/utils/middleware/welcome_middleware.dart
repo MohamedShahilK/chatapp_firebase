@@ -14,7 +14,7 @@ class WelcomeMiddleWare extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     //
-    print('Is opening dirst time :- ${Config.to.isFirstOpen}');
+    print('Is opening first time :- ${Config.to.isFirstOpen}');
 
     // If App opens first time, isFirstOpen = true
     if (Config.to.isFirstOpen) {

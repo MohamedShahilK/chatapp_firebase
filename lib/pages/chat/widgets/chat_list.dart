@@ -27,7 +27,7 @@ class ChatList extends GetView<ChatController> {
                     print(message.content);
                     return chatRightItem(message);
                   }
-                  chatLeftItem(message);
+                  return chatLeftItem(message);
                 },
                 childCount: controller.state.msgContentList.length,
               ),

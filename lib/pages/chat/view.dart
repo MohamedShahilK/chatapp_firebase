@@ -9,6 +9,32 @@ import 'package:get/get.dart';
 class ChatPage extends GetView<ChatController> {
   const ChatPage({super.key});
 
+  void _showPicker(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext ctx) => SafeArea(
+        child: Wrap(
+          children: [
+            ListTile(
+              title: const Text('Gallery'),
+              leading: const Icon(Icons.photo_library),
+              onTap: () {
+                controller.imgFromGallery();
+                // It has the advantage of not needing context, so you can call from your business logic.
+                Get.back();
+              },
+            ),
+            ListTile(
+              title: const Text('Gallery'),
+              leading: const Icon(Icons.photo_library),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // print(controller.state.contactList.length);
@@ -61,7 +87,9 @@ class ChatPage extends GetView<ChatController> {
                             size: 35.w,
                             color: Colors.blue,
                           ),
-                          onTap: () {},
+                          onTap: () {
+                            _showPicker(context);
+                          },
                         ),
                       ),
 
