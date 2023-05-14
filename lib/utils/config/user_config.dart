@@ -9,7 +9,7 @@ import '../design_items/values/values.dart';
 class UserConfig extends GetxController {
   // important
   // it will generate an Instance each time you call Get.find().So along with that "onInit" function also will be call.
-  static UserConfig get to => Get.find(); 
+  static UserConfig get to => Get.find();
 
   // States
   final _isLogin = false.obs;
@@ -35,7 +35,7 @@ class UserConfig extends GetxController {
   Future<void> saveProfile(UserLoginModel profile) async {
     _isLogin.value = true;
     // If you call jsonEncode() function without creating toJson() method. You will get an error:
-    // Also do not change "toJson" to "toMap" or anything, also get error 
+    // Also do not change "toJson" to "toMap" or anything, also get error
     StorageServices.to.setString(STORAGE_USER_PROFILE_KEY, jsonEncode(profile));
     setToken(profile.accessToken!);
   }
@@ -43,5 +43,12 @@ class UserConfig extends GetxController {
   Future<void> setToken(String value) async {
     await StorageServices.to.setString(STORAGE_USER_TOKEN_KEY, value);
     token = value;
+  }
+
+  Future<String> getProfile() async {
+    // if token is empty, return empty string
+    if (token.isEmpty) return "";
+    // otherwise, return this
+    return StorageServices.to.getString(STORAGE_USER_PROFILE_KEY);
   }
 }

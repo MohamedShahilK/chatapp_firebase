@@ -18,8 +18,8 @@ class ContactList extends GetView<ContactController> {
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  var item = controller.state.contactList[index];
-                  return _buildListItem(item);
+                  var toUser = controller.state.contactList[index];
+                  return _buildListItem(toUser);
                 },
                 childCount: controller.state.contactList.length,
               ),
@@ -30,12 +30,14 @@ class ContactList extends GetView<ContactController> {
     );
   }
 
-  Widget _buildListItem(ContactUserModel item) {
+  Widget _buildListItem(ContactUserModel toUser) {
     // print(controller.state.contactList.length);
     return Container(
       padding: EdgeInsets.fromLTRB(15.w, 15.w, 15.w, 0.w),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          controller.goChat(toUser);
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +46,7 @@ class ContactList extends GetView<ContactController> {
               padding: EdgeInsets.only(right: 15.w),
               width: 54.w,
               height: 54.w,
-              child: CachedNetworkImage(imageUrl: "${item.photourl}"),
+              child: CachedNetworkImage(imageUrl: "${toUser.photourl}"),
             ),
             Container(
               padding: EdgeInsets.only(top: 15.w),
@@ -58,7 +60,7 @@ class ContactList extends GetView<ContactController> {
                 width: 200.w,
                 height: 42.w,
                 child: Text(
-                  "${item.name}",
+                  "${toUser.name}",
                   style: TextStyle(
                     fontFamily: 'Avenir',
                     fontWeight: FontWeight.bold,

@@ -1,6 +1,8 @@
 // import 'package:chatapp_firebase/pages/welcome/bindings.dart';
 // import 'package:chatapp_firebase/pages/welcome/view.dart';
 
+import 'package:chatapp_firebase/pages/chat/bindings.dart';
+import 'package:chatapp_firebase/pages/chat/view.dart';
 import 'package:chatapp_firebase/pages/contact/bindings.dart';
 import 'package:chatapp_firebase/pages/contact/view.dart';
 import 'package:chatapp_firebase/pages/dashboard/bindings.dart';
@@ -45,6 +47,13 @@ class AppPages {
       name: AppRouteNames.contact,
       page: () => const ContactPage(),
       binding: ContactBinding(),
+    ),
+
+    // Chat Page
+    GetPage(
+      name: AppRouteNames.chat,
+      page: () => const ChatPage(),
+      binding: ChatBinding(),
     ),
   ];
 }

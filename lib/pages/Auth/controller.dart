@@ -30,6 +30,7 @@ class SignInController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    // this will check user is logged in or out
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
         print('User is currently logged out');
