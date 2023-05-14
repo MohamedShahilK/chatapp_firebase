@@ -1,6 +1,8 @@
 // import 'package:chatapp_firebase/pages/welcome/bindings.dart';
 // import 'package:chatapp_firebase/pages/welcome/view.dart';
 
+import 'package:chatapp_firebase/pages/contact/bindings.dart';
+import 'package:chatapp_firebase/pages/contact/view.dart';
 import 'package:chatapp_firebase/pages/dashboard/bindings.dart';
 import 'package:chatapp_firebase/pages/dashboard/view.dart';
 import 'package:chatapp_firebase/pages/welcome/index.dart';
@@ -31,11 +33,18 @@ class AppPages {
       binding: SignInBinding(),
     ),
 
-    //
+    // DashBoard Page
     GetPage(
       name: AppRouteNames.dashboard,
       page: () => const DashBoardPage(),
       binding: ApplicationBinding(),
-    )
+    ),
+
+    // Contact Page
+    GetPage(
+      name: AppRouteNames.contact,
+      page: () => const ContactPage(),
+      binding: ContactBinding(),
+    ),
   ];
 }

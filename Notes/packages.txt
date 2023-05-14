@@ -13,6 +13,7 @@ firebase_auth       -- firebase authetication
 dots_indicator      -- For Dots Indicator
 shared_preferences  
 fluttertoast        -- For toast message
+cached_network_image
 
 
 

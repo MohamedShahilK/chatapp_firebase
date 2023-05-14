@@ -1,3 +1,4 @@
+import 'package:chatapp_firebase/pages/contact/view.dart';
 import 'package:chatapp_firebase/pages/dashboard/controller.dart';
 import 'package:chatapp_firebase/utils/design_items/values/colors.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,8 @@ class DashBoardPage extends GetView<DashBoardController> {
       physics: const NeverScrollableScrollPhysics(),
       children: const [
         Center(child: Text('Chat')),
-        Center(child: Text('Contact')),
+        // Center(child: Text('Contact')),
+        ContactPage(),
         Center(child: Text('Person')),
       ],
       onPageChanged: (index) {
