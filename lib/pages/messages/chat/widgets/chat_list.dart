@@ -1,6 +1,6 @@
-import 'package:chatapp_firebase/pages/chat/controller.dart';
-import 'package:chatapp_firebase/pages/chat/widgets/chat_left_item.dart';
-import 'package:chatapp_firebase/pages/chat/widgets/chat_right_item.dart';
+import 'package:chatapp_firebase/pages/messages/chat/controller.dart';
+import 'package:chatapp_firebase/pages/messages/chat/widgets/chat_left_item.dart';
+import 'package:chatapp_firebase/pages/messages/chat/widgets/chat_right_item.dart';
 import 'package:chatapp_firebase/utils/design_items/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

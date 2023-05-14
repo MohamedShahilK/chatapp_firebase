@@ -1,4 +1,4 @@
-import 'package:chatapp_firebase/pages/chat/model/msg_content.dart';
+import 'package:chatapp_firebase/pages/messages/chat/model/msg_content.dart';
 import 'package:get/get.dart';
 
 class ChatState {

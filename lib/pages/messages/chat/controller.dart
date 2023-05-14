@@ -2,8 +2,8 @@
 
 import 'dart:io';
 
-import 'package:chatapp_firebase/pages/chat/model/msg_content.dart';
-import 'package:chatapp_firebase/pages/chat/state.dart';
+import 'package:chatapp_firebase/pages/messages/chat/model/msg_content.dart';
+import 'package:chatapp_firebase/pages/messages/chat/state.dart';
 import 'package:chatapp_firebase/utils/config/user_config.dart';
 import 'package:chatapp_firebase/utils/other/string_sp_operation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
